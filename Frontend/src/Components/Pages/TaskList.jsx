@@ -22,7 +22,7 @@ function TaskList () {
   return (
     <div className='container'> 
       <h1>Task Manager</h1>
-      <link to='/add'>+ Add Task</link>
+      <Link to='/add'>+ Add Task</Link>
       <ul>
         {task.map((task, index) => (
             <li key={task.id}>
