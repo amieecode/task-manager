@@ -18,5 +18,16 @@ export const TaskProvider = ({ children }) =>{
     const addNewTask = async(title) => {
         await addTask({ title, status: "pending"});
         loadTasks();
-    }
+    };
+
+    const removeTask = async(id) => {
+        await deleteTask(id);
+        loadTasks();
+    };
+
+    return(
+        <TaskContext.Provider value={{ tasks, addNewTask, removeTask }}>
+            {children}
+        </TaskContext.Provider>
+    );
 }
