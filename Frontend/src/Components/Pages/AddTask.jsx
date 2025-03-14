@@ -14,7 +14,7 @@ function AddTask () {
 
   return (
     <div className='container'>
-      <h1>Add New Task </h1>
+      <h1>Add New Task</h1>
       <form onSubmit={handleSubmit}>
         <input 
             type="text"
