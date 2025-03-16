@@ -1,15 +1,16 @@
-import { useState } from 'react';
-import { addTask } from '../Services/TaskServices';
+import { useState, useContext } from 'react';
+import { TaskContext } from '../Context/TaskContext';
 import { useNavigate } from 'react-router-dom';
 
 function AddTask () {
     const [title, setTitle ] = useState('');
+    const { addNewTask } = useContext(TaskContext);
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await addTask({ title, status: 'pending'});
-        navigate('/');
+        await addNewTask(title);
+        navigate("/");
     };
 
   return (

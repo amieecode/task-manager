@@ -1,33 +1,19 @@
-import { useEffect, useState } from 'react'
-import { getTasks, deleteTask } from '../Services/TaskServices'
+import { useContext } from 'react';
+import { TaskContext } from '../Context/TaskContext';
 import { Link } from 'react-router-dom';
 
 function TaskList () {
-    const [task, setTask ] = useState([]);
-
-    useEffect(() => {
-        loadTasks();
-    }, []);
-
-    const loadTasks = async () =>{
-        const data = await getTasks();
-        setTask(data);
-    };
-
-    const handleDelete = async (id) => {
-        await deleteTask(id);
-        loadTasks();
-    };
+    const [tasks, removeTask ] = useContext(TaskContext);
 
   return (
     <div className='container'> 
       <h1>Task Manager</h1>
       <Link to='/add'>+ Add Task</Link>
       <ul>
-        {task.map((task, index) => (
+        {tasks.map((task) => (
             <li key={task.id}>
                 {task.title} - {task.status}
-                <button onClick={() => handleDelete(task.id)}>Delete</button>
+                <button onClick={() => removeTask(task.id)}>Delete</button>
             </li>
         ))}
       </ul>
