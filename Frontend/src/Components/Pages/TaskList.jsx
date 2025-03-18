@@ -3,7 +3,7 @@ import { TaskContext } from '../Context/TaskContext';
 import { Link } from 'react-router-dom';
 
 function TaskList () {
-    const [tasks, removeTask ] = useContext(TaskContext);
+    const { tasks, removeTask } = useContext(TaskContext);
 
   return (
     <div className='container'> 
