@@ -33,6 +33,12 @@ CORS_ALLOWED_ORIGINS = [
 
 CORS_ALLOW_CREDENTIALS = True
 
+rest_framework = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -46,9 +52,11 @@ INSTALLED_APPS = [
 
     #Third party apps
     'rest_framework',
+    'rest_framework.authtoken',
 
     #apps
     'tasks',
+    'users',
 ]
 
 MIDDLEWARE = [
